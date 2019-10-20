@@ -1,0 +1,69 @@
+html {height: 100%;}
+
+
+@keyframes fadein {
+    0% { opacity: 0; }
+    100%   { opacity: 0.6; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    0% { opacity: 0; }
+    100%   { opacity: 0.6; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    0% { opacity: 0; }
+    100%   { opacity: 0.6; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    0% { opacity: 0; }
+    100%   { opacity: 0.6; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    0% { opacity: 0; }
+    100%   { opacity: 0.6; }
+}
+
+._dash-loading {
+  text-align: center;
+  margin-top: 50px;
+  color: black;
+  font-size: 35px;
+  overflow: hidden;
+
+
+  background:
+    url('/assets/loading_dots.gif') center center no-repeat rgba(255, 255, 255, 1);
+  margin: 0px;
+  height: 900px;
+
+  background-attachment: fixed;
+}
+
+._dash-loading-callback {
+  padding-top: 50px;
+  color: rgb(90, 90, 90);
+
+  -moz-animation: fadein 2s ease-in 0s forwards; /* Firefox */
+  -webkit-animation: fadein 2s ease-in 0s forwards; /* Safari and Chrome */
+  -o-animation: fadein 2s ease-in 0s forwards; /* Opera */
+    animation: fadein 2s ease-in 0s forwards;
+
+  /* The banner */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  cursor: progress;
+  opacity: 0;
+  z-index: 100;
+  background: url('/assets/loading_dots.gif') center center no-repeat rgba(255, 255, 255, 1);
+}
