@@ -19,11 +19,11 @@ model_file = 'GPT2/models/gpt2-pytorch_model.bin'
 
 # Parameters for the GPT-2 Model
 gpt2_parameters = {
-                    "quiet": False,  # Whether or not to print the parameters that are used for the input
+                    "quiet": False,  # Whether or not to print the parameters that are used for input
                     "nsamples": 1,
                     "unconditional": False,  # Output text that does not understand the context of what is input
                     "batch_size": -1,
-                    "length": 150,  # The amount of words to predict after input text
+                    "length": 150,  # The amount of words to predict after input text (max: 512 default: -1)
                     "temperature": 0.9,
                     "top_k": 40,
                     }
@@ -155,8 +155,8 @@ def text_generator(input_text):
             if gpt2_parameters.get("quiet") is False:
                 print("=" * 40 + " SAMPLE " + str(generated) + " " + "=" * 40)
             if '<|endoftext|>' in text:
-                print(input_text + text + ' (END-OF-TEXT)')
-                return input_text + text + ' (END-OF-TEXT)'
+                print(input_text + text.replace("<|endoftext|>",' (END-OF-TEXT)'))
+                return input_text + text.replace("<|endoftext|>",' (END-OF-TEXT)')
             else:
                 print(input_text + text + '...')
                 return input_text + text + '...'

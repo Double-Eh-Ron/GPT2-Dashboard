@@ -2,13 +2,13 @@ import json
 
 class GPT2Config(object):
     def __init__(self, config_file):
-        if config_file == 'distilgpt2-pytorch_model.bin':
+        if 'distilgpt2-pytorch_model.bin' in config_file:
             self.json_file = 'GPT2/configs/gpt2_distil_config.json'
-        if config_file == 'gpt2-pytorch_model.bin':
+        if 'gpt2-pytorch_model.bin' in config_file:
             self.json_file = 'GPT2/configs/gpt2_small_config.json'
-        elif config_file == 'gpt2-medium-pytorch_model.bin':
+        elif 'gpt2-medium-pytorch_model.bin' in config_file:
             self.json_file = 'GPT2/configs/gpt2_medium_config.json'
-        elif config_file == 'gpt2-large-pytorch_model.bin':
+        elif 'gpt2-large-pytorch_model.bin' in config_file:
             self.json_file = 'GPT2/configs/gpt2_large_config.json'
         else:
             self.json_file = 'GPT2/configs/gpt2_small_config.json'

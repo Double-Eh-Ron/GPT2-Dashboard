@@ -31,7 +31,7 @@ def sample_sequence(model, length, start_token=None, batch_size=None, context=No
                 _, prev = torch.topk(log_probs, k=1, dim=-1)
             if str(prev) == 'tensor([[50256]])':
                 print('<|endoftext|> found ~~~ now terminating text generation!')
-                # output = torch.cat((output, prev), dim=1)
+                output = torch.cat((output, prev), dim=1)
                 break
             output = torch.cat((output, prev), dim=1)
     return output
